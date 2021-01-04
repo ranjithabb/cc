@@ -1,0 +1,44 @@
+package com.amazonaws.samples;
+
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.rds.AmazonRDS;
+import com.amazonaws.services.rds.AmazonRDSClientBuilder;
+import com.amazonaws.services.rds.model.DBInstance;
+import com.amazonaws.services.rds.model.DescribeDBInstancesResult;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.*;
+
+public class Demo {
+	
+	public static void main(String[] args) {
+		AmazonRDS aws=AmazonRDSClientBuilder.standard().withRegion(Regions.AP_SOUTH_1).build();
+		DescribeDBInstancesResult dbIR = aws.describeDBInstances();
+		List<DBInstance> dbI = dbIR.getDBInstances();
+		for(DBInstance dbi : dbI) {
+			System.out.println("DB Instance : "+dbi.getDBName());
+		}
+		
+		String hName="orcl.cnzlg7xtowvb.ap-south-1.rds.amazonaws.com";
+		String port = "1521";
+		
+		String jdbcUrl = "jdbc:oracle:thin:@"+hName+":"+port+":ORCL";
+		try {
+			Connection con = DriverManager.getConnection(jdbcUrl,"admin","admin123");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from dual");
+			
+			while(rs.next()) {
+				String data=rs.getString(1);
+				System.out.println("Data is "+data);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
