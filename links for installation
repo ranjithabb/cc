@@ -1,0 +1,8 @@
+eclipse : https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2020-09/R/eclipse-inst-jre-win64.exe
+
+eclipse : https://ftp.yz.yamagata-u.ac.jp/pub/eclipse//oomph/epp/2020-09/R/eclipse-inst-jre-win64.exe
+
+mysql workbench : https://cdn.mysql.com//Downloads/MySQLInstaller/mysql-installer-web-community-8.0.22.0.msi 
+        select custom --> select mysql server and mysql workbench & add mysql path to environment variables
+
+
