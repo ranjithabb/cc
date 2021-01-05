@@ -5,4 +5,6 @@ eclipse : https://ftp.yz.yamagata-u.ac.jp/pub/eclipse//oomph/epp/2020-09/R/eclip
 mysql workbench : https://cdn.mysql.com//Downloads/MySQLInstaller/mysql-installer-web-community-8.0.22.0.msi 
         select custom --> select mysql server and mysql workbench & add mysql path to environment variables
 
-
+jdk : https://www.oracle.com/in/java/technologies/javase/javase-jdk8-downloads.html
+oracle username : ranjubellavi06@gmail.com
+password : Oracle-ranju1
