@@ -64,7 +64,7 @@ public function getdata(){
 
 <html>
 <head>
-        <title>Cloud Computing Lab</title>
+        <title>Cloud Computing RDS with PHP</title>
 </head>
 <body bgcolor="violet">
 
