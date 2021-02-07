@@ -1,0 +1,27 @@
+<?php
+
+$conn = mysqli_connect("phpcclab.cmzjle7sap6g.ap-south-1.rds.amazonaws.com", "phpcclab", "phpcclab", "users");
+
+if (isset($_POST['login'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        if ($result = $conn -> query("SELECT username, pass FROM user where username='$username' and pass='$password'")) {
+          echo "<center><br><br><br><br><br>Login Successful</center>";
+    } else {
+      echo "<center><br><br><br><br><br>Invalid Credentials</center>";
+  }
+  $conn->close();
+    } else {
+      echo '
+      <html><center><form method="post">
+      <br><br><br><br><br>
+        <label>Username</label>
+        <input type="text" name="username" pattern="[a-zA-Z0-9]+" required /><br>
+      <br><br><br><br><br>  
+        <label>Password</label>
+        <input type="password" name="password" required /><br>
+      <br><br><br><br><br>
+        <button type="submit" name="login" value="login">Log In</button>
+    </form></center></html> ';
+    }
+?>
