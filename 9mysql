@@ -1,0 +1,37 @@
+package com.amazonaws.samples;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Labtry {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String HOSTNAME = "admin1.cvpqg6bemcri.ap-south-1.rds.amazonaws.com";
+		String PORT = "3306";
+		String DATABASE = "admin";
+		String JDBC_URL = "jdbc:mysql://" + HOSTNAME + ":" + PORT + "/" + DATABASE;
+		
+		try {
+			
+			
+			Connection con = DriverManager.getConnection(JDBC_URL,"admin","admin123");
+			
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from Student");
+			while(rs.next()) {
+				System.out.println(rs.getInt("usn") + "\t" + rs.getString("name"));
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}
